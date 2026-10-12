@@ -29,7 +29,7 @@ function kowosb(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwa
     167 // 1000,
     125 // 1000,
     1 // 10,
-    833 // 1000,
+    833 // 10000,
     714 // 10000,
     625 // 10000,
   ]
@@ -66,7 +66,7 @@ function kowosb(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwa
     167 // 1000,
     125 // 1000,
     1 // 10,
-    833 // 1000,
+    833 // 10000,
     714 // 10000,
     625 // 10000,
   ]
