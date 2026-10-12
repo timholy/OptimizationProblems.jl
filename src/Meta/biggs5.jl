@@ -9,12 +9,12 @@ biggs5_meta = Dict(
   :has_inequalities_only => false,
   :has_bounds => true,
   :has_fixed_variables => true,
-  :objtype => :other,
+  :objtype => :least_squares,
   :contype => :unconstrained,
-  :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => -3.156207810643302,
+  :best_known_lower_bound => 0.0,
+  :best_known_upper_bound => 0.0,
   :is_feasible => true,
-  :defined_everywhere => missing,
+  :defined_everywhere => true,
   :origin => :unknown,
   :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BIGGS5.SIF",
@@ -61,3 +61,4 @@ get_biggs5_nlin(; n::Int = default_nvar, kwargs...) = 0
 get_biggs5_nnln(; n::Int = default_nvar, kwargs...) = 0
 get_biggs5_nequ(; n::Int = default_nvar, kwargs...) = 0
 get_biggs5_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_biggs5_nls_nequ(; n::Int = default_nvar, m::Int = 13, kwargs...) = max(6, m)
