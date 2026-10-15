@@ -12,10 +12,10 @@ brybnd_meta = Dict(
   :objtype => :least_squares,
   :contype => :unconstrained,
   :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => 3600.0,
+  :best_known_upper_bound => 0.0,
   :is_feasible => true,
   :defined_everywhere => missing,
-  :origin => :unknown,
+  :origin => :academic,
   :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BRYBND.SIF",
   :notes => raw"""
@@ -26,8 +26,18 @@ classification SUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
 
-# Note: discrepancy with CUTEst appears to be a bug in CUTEst, this matches the original paper
-# (See issue #36)
+Residual i is
+  x_i (2 + 5 x_i^2) + 1 - sum_{j in J_i} x_j (1 + x_j),
+with J_i = {j : j != i, max(1, i-5) <= j <= min(n, i+1)}, and the starting
+point is x_i = -1 (Moré, Garbow and Hillstrom, problem 31; Luksan, Matonoha and
+Vlcek, Technical Report 1081, Problem 4). The objective is 1/2 the sum of
+squared residuals.
+
+CUTEst's BRYBND.SIF and SBRYBND.SIF differ from that definition in three
+ways: they omit the constant +1 in each residual, they exchange the square and
+the cube in rows 6 to n-2 (the diagonal term is x_i^2 and the neighbor terms
+are x_j^3), and they start at +1 instead of -1. This implementation follows
+Moré, Garbow and Hillstrom; the minimum value of the sum of squares is 0.
 """,
   :origin_notes => raw"""
 problem 31 in
