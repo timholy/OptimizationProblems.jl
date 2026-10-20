@@ -21,6 +21,8 @@ hs117_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 117.
 
+colville2 is this problem with a_{2,4} = 0.4 rather than 4.
+
 classification OQR2-AN-15-5
 
 classification PQR-AN-15-5

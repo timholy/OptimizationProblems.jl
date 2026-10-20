@@ -3,7 +3,7 @@ export hs117
 function hs117(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   a = Rational{Int}[
     -16 2 0 1 0;
-    0 -2 0 2 // 5 2;
+    0 -2 0 4 2;
     -7 // 2 0 2 0 0;
     0 -2 0 -4 -1;
     0 -9 -2 1 -14 // 5;
