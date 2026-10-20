@@ -3,7 +3,7 @@ export hs86
 function hs86(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   a = Array{T}(undef, 10, 5)
   a[1, :] = [-16, 2, 0, 1, 0]
-  a[2, :] = [0, -2, 0, 4 // 10, 2]
+  a[2, :] = [0, -2, 0, 4, 2]
   a[3, :] = [-35 // 10, 0, 2, 0, 0]
   a[4, :] = [0, -2, 0, -4, -1]
   a[5, :] = [0, -9, -2, 1, -28 // 10]
