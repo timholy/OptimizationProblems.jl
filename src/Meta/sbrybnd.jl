@@ -17,7 +17,7 @@ sbrybnd_meta = Dict(
   :defined_everywhere => missing,
   :origin => :academic,
   :implementation => :both,
-  :url => "https://bitbucket.org/optrove/sif/src/master/SBRYBND.SIF",
+  :url => "https://github.com/ralna/SIF/blob/master/SSBRYBND2.SIF",
   :notes => raw"""
 Broyden banded system of nonlinear equations, considered in the
 least square sense.
@@ -31,14 +31,14 @@ The problem is BRYBND in the variables z_i = p_i x_i, with scale factors
 p_i = exp(6 (i-1)/(n-1)) and starting point x_i = 1/p_i, as in Problem 48 of
 L. Luksan, C. Matonoha and J. Vlcek, Technical Report 1081 (the printed formula
 omits the square of each residual; their Fortran code squares it, as this
-implementation does). CUTEst's SBRYBND uses p_i = exp(12 (i-1)/(n-1)), which
-is also a published choice and makes the problem far more badly scaled.
+implementation does).
 
-CUTEst's BRYBND.SIF and SBRYBND.SIF differ from that definition in three
-ways: they omit the constant +1 in each residual, they exchange the square and
-the cube in rows 6 to n-2 (the diagonal term is x_i^2 and the neighbor terms
-are x_j^3), and they start at +1 instead of -1. This implementation follows
-Moré, Garbow and Hillstrom; the minimum value of the sum of squares is 0.
+This is CUTEst's SSBRYBND2. CUTEst's SSBRYBND has the same scale factors and
+starting point, but, like CUTEst's BRYBND, its residuals omit the constant +1
+and exchange the square and the cube in rows 6 to n-2. CUTEst's SBRYBND and
+SBRYBND2 use p_i = exp(12 (i-1)/(n-1)), which is also a published choice and
+makes the problem far more badly scaled. The minimum value of the sum of
+squares is 0.
 """,
   :origin_notes => raw"""
 problem 31 in
@@ -69,7 +69,7 @@ SIF input: Ph. Toint and Nick Gould, Nov 1997.
   doi     = {10.1145/355934.355936}
 }  
   """,
-  :lib => "CUTEst:SBRYBND, Luksan:48",
+  :lib => "CUTEst:SSBRYBND2, Luksan:48",
 )
 get_sbrybnd_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
 get_sbrybnd_ncon(; n::Int = default_nvar, kwargs...) = 0

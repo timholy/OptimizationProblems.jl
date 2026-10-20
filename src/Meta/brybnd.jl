@@ -17,7 +17,7 @@ brybnd_meta = Dict(
   :defined_everywhere => missing,
   :origin => :academic,
   :implementation => :both,
-  :url => "https://bitbucket.org/optrove/sif/src/master/BRYBND.SIF",
+  :url => "https://github.com/ralna/SIF/blob/master/BRYBND2.SIF",
   :notes => raw"""
 Broyden banded system of nonlinear equations, considered in the
 least square sense.
@@ -33,11 +33,10 @@ point is x_i = -1 (Moré, Garbow and Hillstrom, problem 31; Luksan, Matonoha and
 Vlcek, Technical Report 1081, Problem 4). The objective is 1/2 the sum of
 squared residuals.
 
-CUTEst's BRYBND.SIF and SBRYBND.SIF differ from that definition in three
-ways: they omit the constant +1 in each residual, they exchange the square and
-the cube in rows 6 to n-2 (the diagonal term is x_i^2 and the neighbor terms
-are x_j^3), and they start at +1 instead of -1. This implementation follows
-Moré, Garbow and Hillstrom; the minimum value of the sum of squares is 0.
+This is CUTEst's BRYBND2. CUTEst's BRYBND differs from it in three ways: it
+omits the constant +1 in each residual, it exchanges the square and the cube in
+rows 6 to n-2 (the diagonal term is x_i^2 and the neighbor terms are x_j^3), and
+it starts at +1 instead of -1. The minimum value of the sum of squares is 0.
 """,
   :origin_notes => raw"""
 problem 31 in
@@ -59,7 +58,7 @@ SDIF input: Ph. Toint, Dec 1989.
   doi     = {10.1145/355934.355936}
 }  
   """,
-  :lib => "CUTEst:BRYBND, Luksan:4",
+  :lib => "CUTEst:BRYBND2, Luksan:4",
 )
 get_brybnd_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
 get_brybnd_ncon(; n::Int = default_nvar, kwargs...) = 0
