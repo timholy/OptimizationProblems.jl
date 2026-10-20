@@ -22,6 +22,8 @@ biggs5_meta = Dict(
 Biggs problem in 5 variables.
 This function is a nonlinear least squares with 13 groups.  It is a
 variation on the biggs6 problem where the 6-th variable is fixed to 3.
+The starting point (1, 2, 1, 1, 1, 3) is the named starting point BIGGS5OR
+of CUTEst's BIGGS5, whose default starting point is (1, 2, 1, 1, 4, 3).
 
 Biggs EXP problem in 5 variables
 
